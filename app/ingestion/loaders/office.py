@@ -1,5 +1,5 @@
 import logfire
-from unstructured.partition import partition
+from unstructured.partition.auto import partition
 
 
 def parse_office(file_path: str) -> str:

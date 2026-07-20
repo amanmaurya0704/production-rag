@@ -39,7 +39,7 @@ def parse_pdf(file_path:str):
                     chunk_end = min(i+MAX_PAGE_PER_REQUEST, total_pages)
 
                     for page_num in range(i,chunk_end):
-                        writer.add_page(reader.page[page_num])
+                        writer.add_page(reader.pages[page_num])
 
                     with io.BytesIO() as byte_stream:
                         writer.write(byte_stream)
