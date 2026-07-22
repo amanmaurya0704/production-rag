@@ -1,4 +1,4 @@
-from langgraph import StateGraph, END
+from langgraph.graph import StateGraph, END
 from langgraph.checkpoint.memory import MemorySaver
 from app.agents.state import AgentState
 from app.agents.nodes.planner import planner_node
@@ -34,6 +34,6 @@ workflow.add_conditional_edges(
 workflow.add_edge("retriever", "responder")
 workflow.add_edge("responder", END)
 
-checkpoint = MemorySaver()
+checkpointer = MemorySaver()
 
-rag_agent = workflow.compile(checkpoint=checkpoint)
+rag_agent = workflow.compile(checkpointer = checkpointer)

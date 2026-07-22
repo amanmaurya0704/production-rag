@@ -16,10 +16,10 @@ def search_enterprise_knowledge(query: str, limit: int = 10):
     try:
         query_vector = embed_query(query)
         response = client.query_points(
-            collection_name=settings.QDRANT_COLLECTION_NAME,
-            query_vector=query_vector,
+            collection_name=settings.QDRANT_COLLECTION,
+            query=query_vector,
             limit=limit,
-            with_payload=True   
+            with_payload=True
         )
 
         result=[]

@@ -120,9 +120,14 @@ def process_file(file_path:str, filename: str, source_type: str,skip_raw_upload:
                     )
                     for chunk, vector in zip(chunks, embeddings)
                 ]
-           
+
+                qdrant_client.upsert(
+                    collection_name=settings.QDRANT_COLLECTION,
+                    points=points,
+                )
+
                 logfire.info(f"✨ Indexed {len(points)} points to Qdrant from '{filename}'")
-                    
+
 
             logfire.info(f"File {filename} processed and uploaded successfully.")
         except Exception as e:

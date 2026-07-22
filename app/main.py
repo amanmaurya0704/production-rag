@@ -46,7 +46,7 @@ def query(request: QueryRequest):
     config = {"configurable": {"thread_id": thread_id}}
 
     try:
-        final_output = rag_agent.run(initial_state, config = config)
+        final_output = rag_agent.invoke(initial_state, config = config)
         return {
             "question": q,
             "answer": final_output.get("final_answer"),

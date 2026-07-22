@@ -70,4 +70,4 @@ def generate_node(state: AgentState):
             logfire.error(f"Error generating response: {e}")
             raise
 
-    return {"response": response}
+    return {"final_answer": response}
